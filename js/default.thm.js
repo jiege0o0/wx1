@@ -2599,9 +2599,9 @@ var egret = window.egret;
 	__extends(RankUISkin, _super);
 	function RankUISkin() {
 		_super.call(this);
-		this.skinParts = ["closeBtn","list","scroller"];
+		this.skinParts = ["closeBtn","scrollGroup","scroller"];
 		
-		this.height = 840;
+		this.height = 860;
 		this.width = 600;
 		this.elementsContent = [this._Image1_i(),this.closeBtn_i(),this._Label1_i(),this.scroller_i()];
 	}
@@ -2649,29 +2649,12 @@ var egret = window.egret;
 		t.horizontalCenter = 0;
 		t.top = 115;
 		t.width = 560;
-		t.viewport = this._Group1_i();
+		t.viewport = this.scrollGroup_i();
 		return t;
 	};
-	_proto._Group1_i = function () {
+	_proto.scrollGroup_i = function () {
 		var t = new eui.Group();
-		t.elementsContent = [this.list_i()];
-		return t;
-	};
-	_proto.list_i = function () {
-		var t = new eui.List();
-		this.list = t;
-		t.bottom = 0;
-		t.left = 0;
-		t.right = 0;
-		t.top = 0;
-		t.layout = this._TileLayout1_i();
-		return t;
-	};
-	_proto._TileLayout1_i = function () {
-		var t = new eui.TileLayout();
-		t.horizontalGap = 10;
-		t.requestedColumnCount = 3;
-		t.verticalGap = 15;
+		this.scrollGroup = t;
 		return t;
 	};
 	return RankUISkin;

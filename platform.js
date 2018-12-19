@@ -69,6 +69,7 @@ class WxgameOpenDataContext {
     postMessage(data) {
         const openDataContext = wx.getOpenDataContext();
         openDataContext.postMessage(data);
+        
     }
 }
 
