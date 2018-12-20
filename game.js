@@ -5,20 +5,21 @@ require('./egret.wxgame.js');
 
 // 启动微信小游戏本地缓存，如果开发者不需要此功能，只需注释即可
 // 只有使用 assetsmanager 的项目可以使用
-if(window.RES && RES.processor) {
-    require('./library/image.js');
-    require('./library/text.js');
-    require('./library/sound.js');
-    require('./library/binary.js');
-}
+// if(window.RES && RES.processor) {
+    // require('./library/image.js');
+    // require('./library/text.js');
+    // require('./library/sound.js');
+    // require('./library/binary.js');
+// }
 
+console.log('_0')
 //sasas
 wx.cloud.init({
   // env: 'release-c00aa8'
-  env: 'hange0o0-1-797611'
+  // env: 'hange0o0-1-797611'
   
 });
-var a;
+// var a;
 
 // wx.cloud.callFunction({      //取玩家openID,
 //   name: 'onShareIn',
@@ -38,7 +39,7 @@ var a;
 //     console.log(res)
 //   },
 // })
-
+console.log('_1')
 
 egret.runEgret({
     //以下为自动修改，请勿修改
@@ -67,5 +68,5 @@ egret.runEgret({
         return (window.devicePixelRatio || 1) / backingStore;
     }
 });
-
+console.log('_2')
 // require("egret.min.js")

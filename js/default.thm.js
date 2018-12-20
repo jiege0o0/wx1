@@ -1997,11 +1997,13 @@ var egret = window.egret;
 	__extends(GameUISkin, _super);
 	function GameUISkin() {
 		_super.call(this);
-		this.skinParts = ["bg","errorMC","line2","line1","treeGroup","titleMC","startBtn","rankBtn","levelBtn","skinBtn","settingBtn","bottomGroup","levelText","levelGroup","slowBtn","speedBtn","debugBtn","readyText","speedText","needle","rateMC2","limitGroup","meterGroup","gameLevelText","exitBtn","failMC"];
+		this.skinParts = ["bg","errorMC","line2","line1","treeGroup","titleMC","startBtn","rankBtn","levelBtn","skinBtn","settingBtn","bottomGroup","levelText","levelGroup","debugBtn","readyText","speedText","needle","rateMC2","limitGroup","meterGroup","gameLevelText","exitBtn","failMC"];
 		
 		this.height = 1360;
 		this.width = 640;
-		this.elementsContent = [this.bg_i(),this._Rect1_i(),this.errorMC_i(),this.line2_i(),this.line1_i(),this._Rect3_i(),this.treeGroup_i(),this.titleMC_i(),this.startBtn_i(),this.bottomGroup_i(),this.levelGroup_i(),this._Image2_i(),this.slowBtn_i(),this.speedBtn_i()];
+		this.elementsContent = [this.bg_i(),this._Rect1_i(),this.line2_i(),this.line1_i(),this._Rect2_i(),this.treeGroup_i(),this.titleMC_i(),this.startBtn_i(),this.bottomGroup_i(),this.levelGroup_i(),this._Image3_i()];
+		this.errorMC_i();
+		
 		this.debugBtn_i();
 		
 		this.readyText_i();
@@ -2018,22 +2020,21 @@ var egret = window.egret;
 			new eui.State ("main",
 				[
 					new eui.AddItems("debugBtn","",1,""),
-					new eui.SetProperty("_Rect3","top",0),
-					new eui.SetProperty("_Rect3","bottom",0),
-					new eui.SetProperty("slowBtn","visible",false),
-					new eui.SetProperty("speedBtn","visible",false)
+					new eui.SetProperty("_Rect2","top",0),
+					new eui.SetProperty("_Rect2","bottom",0)
 				])
 			,
 			new eui.State ("game",
 				[
+					new eui.AddItems("errorMC","",2,"line2"),
 					new eui.AddItems("readyText","",1,""),
 					new eui.AddItems("limitGroup","meterGroup",1,""),
 					new eui.AddItems("meterGroup","",1,""),
 					new eui.AddItems("exitBtn","",1,""),
 					new eui.AddItems("failMC","",1,""),
 					new eui.SetProperty("errorMC","height",5),
-					new eui.SetProperty("_Rect3","top",0),
-					new eui.SetProperty("_Rect3","bottom",0),
+					new eui.SetProperty("_Rect2","top",0),
+					new eui.SetProperty("_Rect2","bottom",0),
 					new eui.SetProperty("titleMC","visible",false),
 					new eui.SetProperty("startBtn","visible",false),
 					new eui.SetProperty("bottomGroup","visible",false),
@@ -2070,15 +2071,17 @@ var egret = window.egret;
 		t.width = 600;
 		t.x = 20;
 		t.y = 0;
-		t.elementsContent = [this._Rect2_i()];
+		t.elementsContent = [this._Image1_i()];
 		return t;
 	};
-	_proto._Rect2_i = function () {
-		var t = new eui.Rect();
+	_proto._Image1_i = function () {
+		var t = new eui.Image();
 		t.bottom = 0;
-		t.fillColor = 0xff0000;
 		t.left = 0;
 		t.right = 0;
+		t.scaleX = 1;
+		t.scaleY = 1;
+		t.source = "red_jpg";
 		t.top = 0;
 		return t;
 	};
@@ -2102,9 +2105,9 @@ var egret = window.egret;
 		t.y = 0;
 		return t;
 	};
-	_proto._Rect3_i = function () {
+	_proto._Rect2_i = function () {
 		var t = new eui.Rect();
-		this._Rect3 = t;
+		this._Rect2 = t;
 		t.fillColor = 0xffffff;
 		t.height = 1136;
 		t.horizontalCenter = 0;
@@ -2188,10 +2191,10 @@ var egret = window.egret;
 		this.levelGroup = t;
 		t.bottom = 280;
 		t.horizontalCenter = 0;
-		t.elementsContent = [this._Image1_i(),this.levelText_i()];
+		t.elementsContent = [this._Image2_i(),this.levelText_i()];
 		return t;
 	};
-	_proto._Image1_i = function () {
+	_proto._Image2_i = function () {
 		var t = new eui.Image();
 		t.bottom = 0;
 		t.left = 0;
@@ -2214,31 +2217,13 @@ var egret = window.egret;
 		t.verticalAlign = "middle";
 		return t;
 	};
-	_proto._Image2_i = function () {
+	_proto._Image3_i = function () {
 		var t = new eui.Image();
 		t.bottom = 400;
 		t.horizontalCenter = 230;
 		t.scaleX = 0.7;
 		t.scaleY = 0.7;
 		t.source = "car_temp_png";
-		t.visible = false;
-		return t;
-	};
-	_proto.slowBtn_i = function () {
-		var t = new eui.Image();
-		this.slowBtn = t;
-		t.bottom = 80;
-		t.horizontalCenter = -230;
-		t.source = "tap_png";
-		t.visible = false;
-		return t;
-	};
-	_proto.speedBtn_i = function () {
-		var t = new eui.Image();
-		this.speedBtn = t;
-		t.bottom = 80;
-		t.horizontalCenter = 230;
-		t.source = "tap_png";
 		t.visible = false;
 		return t;
 	};
@@ -2270,17 +2255,17 @@ var egret = window.egret;
 		t.height = 200;
 		t.width = 304;
 		t.x = 170;
-		t.elementsContent = [this._Image3_i(),this._Image4_i(),this._Group1_i(),this.needle_i()];
+		t.elementsContent = [this._Image4_i(),this._Image5_i(),this._Group1_i(),this.needle_i()];
 		return t;
 	};
-	_proto._Image3_i = function () {
+	_proto._Image4_i = function () {
 		var t = new eui.Image();
 		t.horizontalCenter = 0;
 		t.source = "clock_bg_png";
 		t.y = -2;
 		return t;
 	};
-	_proto._Image4_i = function () {
+	_proto._Image5_i = function () {
 		var t = new eui.Image();
 		t.source = "car_clock_png";
 		t.x = 1;
@@ -2339,10 +2324,10 @@ var egret = window.egret;
 		t.horizontalCenter = 0;
 		t.width = 204;
 		t.y = 175;
-		t.elementsContent = [this._Rect4_i(),this.rateMC2_i()];
+		t.elementsContent = [this._Rect3_i(),this.rateMC2_i()];
 		return t;
 	};
-	_proto._Rect4_i = function () {
+	_proto._Rect3_i = function () {
 		var t = new eui.Rect();
 		t.fillColor = 0x282828;
 		t.height = 12;
@@ -2352,10 +2337,10 @@ var egret = window.egret;
 		return t;
 	};
 	_proto.rateMC2_i = function () {
-		var t = new eui.Rect();
+		var t = new eui.Image();
 		this.rateMC2 = t;
-		t.fillColor = 0xff0000;
 		t.height = 8;
+		t.source = "red_jpg";
 		t.width = 100;
 		t.x = 2;
 		t.y = 2;
@@ -2366,10 +2351,10 @@ var egret = window.egret;
 		this.exitBtn = t;
 		t.x = 20;
 		t.y = 20;
-		t.elementsContent = [this._Image5_i(),this._Group2_i()];
+		t.elementsContent = [this._Image6_i(),this._Group2_i()];
 		return t;
 	};
-	_proto._Image5_i = function () {
+	_proto._Image6_i = function () {
 		var t = new eui.Image();
 		t.height = 70;
 		t.scale9Grid = new egret.Rectangle(18,22,114,54);
@@ -2383,7 +2368,7 @@ var egret = window.egret;
 		t.horizontalCenter = 0;
 		t.verticalCenter = -3;
 		t.layout = this._HorizontalLayout3_i();
-		t.elementsContent = [this._Image6_i(),this.gameLevelText_i()];
+		t.elementsContent = [this._Image7_i(),this.gameLevelText_i()];
 		return t;
 	};
 	_proto._HorizontalLayout3_i = function () {
@@ -2391,7 +2376,7 @@ var egret = window.egret;
 		t.gap = 10;
 		return t;
 	};
-	_proto._Image6_i = function () {
+	_proto._Image7_i = function () {
 		var t = new eui.Image();
 		t.source = "gaming_back_png";
 		t.x = 0;
@@ -2410,13 +2395,13 @@ var egret = window.egret;
 		return t;
 	};
 	_proto.failMC_i = function () {
-		var t = new eui.Rect();
+		var t = new eui.Image();
 		this.failMC = t;
+		t.alpha = 0.1;
 		t.bottom = 0;
-		t.fillAlpha = 0.1;
-		t.fillColor = 0xff0000;
 		t.left = 0;
 		t.right = 0;
+		t.source = "red_jpg";
 		t.top = 0;
 		t.visible = false;
 		return t;
