@@ -2001,7 +2001,7 @@ var egret = window.egret;
 		
 		this.height = 1360;
 		this.width = 640;
-		this.elementsContent = [this.bg_i(),this._Rect1_i(),this.line2_i(),this.line1_i(),this._Rect2_i(),this.treeGroup_i(),this.titleMC_i(),this.startBtn_i(),this.bottomGroup_i(),this.levelGroup_i(),this._Image3_i()];
+		this.elementsContent = [this.bg_i(),this._Rect1_i(),this.line2_i(),this.line1_i(),this._Rect2_i(),this.treeGroup_i(),this.titleMC_i(),this.startBtn_i(),this.bottomGroup_i(),this.levelGroup_i()];
 		this.errorMC_i();
 		
 		this.debugBtn_i();
@@ -2217,16 +2217,6 @@ var egret = window.egret;
 		t.verticalAlign = "middle";
 		return t;
 	};
-	_proto._Image3_i = function () {
-		var t = new eui.Image();
-		t.bottom = 400;
-		t.horizontalCenter = 230;
-		t.scaleX = 0.7;
-		t.scaleY = 0.7;
-		t.source = "car_temp_png";
-		t.visible = false;
-		return t;
-	};
 	_proto.debugBtn_i = function () {
 		var t = new eui.Button();
 		this.debugBtn = t;
@@ -2255,21 +2245,32 @@ var egret = window.egret;
 		t.height = 200;
 		t.width = 304;
 		t.x = 170;
-		t.elementsContent = [this._Image4_i(),this._Image5_i(),this._Group1_i(),this.needle_i()];
+		t.elementsContent = [this._Image3_i(),this._Image4_i(),this._Image5_i(),this._Group1_i(),this.needle_i()];
+		return t;
+	};
+	_proto._Image3_i = function () {
+		var t = new eui.Image();
+		t.horizontalCenter = 0;
+		t.source = "clock_bg_png";
+		t.visible = false;
+		t.y = -2;
 		return t;
 	};
 	_proto._Image4_i = function () {
 		var t = new eui.Image();
-		t.horizontalCenter = 0;
-		t.source = "clock_bg_png";
-		t.y = -2;
+		t.source = "car_clock_png";
+		t.x = 1;
+		t.y = 1;
 		return t;
 	};
 	_proto._Image5_i = function () {
 		var t = new eui.Image();
-		t.source = "car_clock_png";
-		t.x = 1;
-		t.y = 1;
+		t.height = 46;
+		t.horizontalCenter = 0;
+		t.scale9Grid = new egret.Rectangle(11,8,11,14);
+		t.source = "bg8_png";
+		t.width = 120;
+		t.y = 82.38;
 		return t;
 	};
 	_proto._Group1_i = function () {
@@ -2290,7 +2291,6 @@ var egret = window.egret;
 		var t = new eui.Label();
 		this.speedText = t;
 		t.size = 30;
-		t.stroke = 2;
 		t.text = "300";
 		t.x = 0;
 		t.y = 0;
@@ -2300,7 +2300,6 @@ var egret = window.egret;
 		var t = new eui.Label();
 		t.height = 22;
 		t.size = 20;
-		t.stroke = 2;
 		t.text = "km/h";
 		t.textColor = 0xffffff;
 		t.x = 0;
