@@ -10,7 +10,106 @@ var egret = window.egret;
                 window.generateEUI = {};
                 generateEUI.paths = {};
                 generateEUI.styles = undefined;
-                generateEUI.skins = {};generateEUI.paths['resource/game_skin/commont/btns/Btn1Skin.exml'] = window.Btn1Skin = (function (_super) {
+                generateEUI.skins = {};generateEUI.paths['resource/game_skin/changeUser/JumpGroup.exml'] = window.JumpGroupSkin = (function (_super) {
+	__extends(JumpGroupSkin, _super);
+	function JumpGroupSkin() {
+		_super.call(this);
+		this.skinParts = ["player","talkText","talkGroup","goBtn"];
+		
+		this.height = 120;
+		this.width = 640;
+		this.elementsContent = [this.player_i(),this.talkGroup_i(),this.goBtn_i()];
+	}
+	var _proto = JumpGroupSkin.prototype;
+
+	_proto.player_i = function () {
+		var t = new eui.Image();
+		this.player = t;
+		t.bottom = 0;
+		t.left = 0;
+		t.scaleX = -1;
+		t.source = "enemy1_hd_png";
+		return t;
+	};
+	_proto.talkGroup_i = function () {
+		var t = new eui.Group();
+		this.talkGroup = t;
+		t.anchorOffsetX = 85;
+		t.anchorOffsetY = 110;
+		t.bottom = 135;
+		t.x = 125;
+		t.elementsContent = [this._Image1_i(),this.talkText_i()];
+		return t;
+	};
+	_proto._Image1_i = function () {
+		var t = new eui.Image();
+		t.source = "talk_bg_png";
+		t.width = 170;
+		t.x = 0;
+		t.y = 0;
+		return t;
+	};
+	_proto.talkText_i = function () {
+		var t = new eui.Label();
+		this.talkText = t;
+		t.horizontalCenter = 0;
+		t.lineSpacing = 5;
+		t.size = 22;
+		t.text = "车技不错，来我这里发展吧";
+		t.textColor = 0x000000;
+		t.width = 140;
+		t.y = 22.33;
+		return t;
+	};
+	_proto.goBtn_i = function () {
+		var t = new eui.Group();
+		this.goBtn = t;
+		t.right = 50;
+		t.verticalCenter = 0;
+		t.elementsContent = [this._Label1_i(),this._Rect1_i()];
+		return t;
+	};
+	_proto._Label1_i = function () {
+		var t = new eui.Label();
+		t.text = "  前往  >>  ";
+		t.x = 0;
+		t.y = 0;
+		return t;
+	};
+	_proto._Rect1_i = function () {
+		var t = new eui.Rect();
+		t.fillColor = 0xffffff;
+		t.height = 2;
+		t.percentWidth = 100;
+		t.x = 0;
+		t.y = 35;
+		return t;
+	};
+	return JumpGroupSkin;
+})(eui.Skin);generateEUI.paths['resource/game_skin/changeUser/JumpMCSkin.exml'] = window.JumpMCSkin = (function (_super) {
+	__extends(JumpMCSkin, _super);
+	function JumpMCSkin() {
+		_super.call(this);
+		this.skinParts = ["mc"];
+		
+		this.height = 80;
+		this.width = 80;
+		this.elementsContent = [this.mc_i()];
+	}
+	var _proto = JumpMCSkin.prototype;
+
+	_proto.mc_i = function () {
+		var t = new eui.Image();
+		this.mc = t;
+		t.bottom = 0;
+		t.left = 0;
+		t.right = 0;
+		t.source = "";
+		t.top = 0;
+		return t;
+	};
+	return JumpMCSkin;
+})(eui.Skin);generateEUI.paths['resource/game_skin/commont/btns/Btn1Skin.exml'] = window.Btn1Skin = (function (_super) {
 	__extends(Btn1Skin, _super);
 	function Btn1Skin() {
 		_super.call(this);
@@ -1233,8 +1332,8 @@ var egret = window.egret;
 	_proto._Image1_i = function () {
 		var t = new eui.Image();
 		t.percentHeight = 100;
-		t.scale9Grid = new egret.Rectangle(33,31,4,6);
-		t.source = "bg14_png";
+		t.scale9Grid = new egret.Rectangle(21,39,95,94);
+		t.source = "skin_item_png";
 		t.percentWidth = 100;
 		t.x = 0;
 		t.y = 0;
@@ -1293,9 +1392,9 @@ var egret = window.egret;
 	_proto.closeBtn_i = function () {
 		var t = new eui.Image();
 		this.closeBtn = t;
-		t.right = -10;
-		t.source = "icon_error_png";
-		t.y = -10;
+		t.right = 3;
+		t.source = "close_btn_png";
+		t.y = -1;
 		return t;
 	};
 	return AlertSkin;
@@ -1997,16 +2096,24 @@ var egret = window.egret;
 	__extends(GameUISkin, _super);
 	function GameUISkin() {
 		_super.call(this);
-		this.skinParts = ["bg","errorMC","line2","line1","treeGroup","titleMC","startBtn","rankBtn","levelBtn","skinBtn","settingBtn","bottomGroup","levelText","levelGroup","debugBtn","readyText","speedText","needle","rateMC2","limitGroup","meterGroup","gameLevelText","exitBtn","failMC"];
+		this.skinParts = ["bg","line2","line1","errorMC","treeGroup","titleMC","startBtn","rankBtn","levelBtn","skinBtn","settingBtn","bottomGroup","levelText","levelGroup","debugBtn","readyText","guideText","resultText","rightBtn","leftBtn","speedText","needle","rateMC2","limitGroup","meterGroup","gameLevelText","exitBtn","failMC","tipsGroup","jumpMC","jumpMC2"];
 		
 		this.height = 1360;
 		this.width = 640;
-		this.elementsContent = [this.bg_i(),this._Rect1_i(),this.line2_i(),this.line1_i(),this._Rect2_i(),this.treeGroup_i(),this.titleMC_i(),this.startBtn_i(),this.bottomGroup_i(),this.levelGroup_i()];
+		this.elementsContent = [this.bg_i(),this._Image1_i(),this.line2_i(),this.line1_i(),this.treeGroup_i(),this.titleMC_i(),this.startBtn_i(),this.bottomGroup_i(),this.levelGroup_i(),this.jumpMC_i(),this.jumpMC2_i()];
 		this.errorMC_i();
 		
 		this.debugBtn_i();
 		
 		this.readyText_i();
+		
+		this.guideText_i();
+		
+		this.resultText_i();
+		
+		this.rightBtn_i();
+		
+		this.leftBtn_i();
 		
 		this.limitGroup_i();
 		
@@ -2016,29 +2123,33 @@ var egret = window.egret;
 		
 		this.failMC_i();
 		
+		this.tipsGroup_i();
+		
 		this.states = [
 			new eui.State ("main",
 				[
-					new eui.AddItems("debugBtn","",1,""),
-					new eui.SetProperty("_Rect2","top",0),
-					new eui.SetProperty("_Rect2","bottom",0)
+					new eui.AddItems("debugBtn","",2,"jumpMC"),
+					new eui.AddItems("tipsGroup","",2,"jumpMC")
 				])
 			,
 			new eui.State ("game",
 				[
-					new eui.AddItems("errorMC","",2,"line2"),
-					new eui.AddItems("readyText","",1,""),
+					new eui.AddItems("errorMC","",2,"treeGroup"),
+					new eui.AddItems("readyText","",2,"jumpMC"),
+					new eui.AddItems("guideText","",2,"jumpMC"),
+					new eui.AddItems("resultText","",2,"jumpMC"),
+					new eui.AddItems("rightBtn","",2,"jumpMC"),
+					new eui.AddItems("leftBtn","",2,"jumpMC"),
 					new eui.AddItems("limitGroup","meterGroup",1,""),
-					new eui.AddItems("meterGroup","",1,""),
-					new eui.AddItems("exitBtn","",1,""),
-					new eui.AddItems("failMC","",1,""),
-					new eui.SetProperty("errorMC","height",5),
-					new eui.SetProperty("_Rect2","top",0),
-					new eui.SetProperty("_Rect2","bottom",0),
+					new eui.AddItems("meterGroup","",2,"jumpMC"),
+					new eui.AddItems("exitBtn","",2,"jumpMC"),
+					new eui.AddItems("failMC","",2,"jumpMC"),
 					new eui.SetProperty("titleMC","visible",false),
 					new eui.SetProperty("startBtn","visible",false),
 					new eui.SetProperty("bottomGroup","visible",false),
-					new eui.SetProperty("levelGroup","visible",false)
+					new eui.SetProperty("levelGroup","visible",false),
+					new eui.SetProperty("jumpMC","visible",false),
+					new eui.SetProperty("jumpMC2","visible",false)
 				])
 		];
 	}
@@ -2055,33 +2166,11 @@ var egret = window.egret;
 		t.y = 0;
 		return t;
 	};
-	_proto._Rect1_i = function () {
-		var t = new eui.Rect();
-		t.bottom = 0;
-		t.fillColor = 0x424242;
-		t.horizontalCenter = 0;
-		t.top = 0;
-		t.width = 600;
-		return t;
-	};
-	_proto.errorMC_i = function () {
-		var t = new eui.Group();
-		this.errorMC = t;
-		t.height = 10;
-		t.width = 600;
-		t.x = 20;
-		t.y = 0;
-		t.elementsContent = [this._Image1_i()];
-		return t;
-	};
 	_proto._Image1_i = function () {
 		var t = new eui.Image();
 		t.bottom = 0;
-		t.left = 0;
-		t.right = 0;
-		t.scaleX = 1;
-		t.scaleY = 1;
-		t.source = "red_jpg";
+		t.horizontalCenter = 0;
+		t.source = "road_jpg";
 		t.top = 0;
 		return t;
 	};
@@ -2105,13 +2194,13 @@ var egret = window.egret;
 		t.y = 0;
 		return t;
 	};
-	_proto._Rect2_i = function () {
-		var t = new eui.Rect();
-		this._Rect2 = t;
-		t.fillColor = 0xffffff;
-		t.height = 1136;
+	_proto.errorMC_i = function () {
+		var t = new eui.Image();
+		this.errorMC = t;
+		t.height = 10;
 		t.horizontalCenter = 0;
-		t.width = 15;
+		t.source = "red_jpg";
+		t.width = 600;
 		t.y = 0;
 		return t;
 	};
@@ -2238,6 +2327,54 @@ var egret = window.egret;
 		t.verticalCenter = -100;
 		return t;
 	};
+	_proto.guideText_i = function () {
+		var t = new eui.Label();
+		this.guideText = t;
+		t.bold = true;
+		t.horizontalCenter = 0;
+		t.size = 30;
+		t.stroke = 3;
+		t.text = "3";
+		t.textColor = 0xfcd550;
+		t.y = 150;
+		return t;
+	};
+	_proto.resultText_i = function () {
+		var t = new eui.Label();
+		this.resultText = t;
+		t.anchorOffsetY = 20;
+		t.bold = true;
+		t.height = 40;
+		t.horizontalCenter = 0;
+		t.size = 40;
+		t.stroke = 3;
+		t.text = "GOOD";
+		t.textColor = 0xFCD550;
+		t.y = 150;
+		return t;
+	};
+	_proto.rightBtn_i = function () {
+		var t = new eui.Rect();
+		this.rightBtn = t;
+		t.bottom = 0;
+		t.fillAlpha = 0.2;
+		t.fillColor = 0x5af40e;
+		t.top = 0;
+		t.width = 320;
+		t.x = 320;
+		return t;
+	};
+	_proto.leftBtn_i = function () {
+		var t = new eui.Rect();
+		this.leftBtn = t;
+		t.bottom = 0;
+		t.fillAlpha = 0.2;
+		t.fillColor = 0xf20e0e;
+		t.top = 0;
+		t.width = 320;
+		t.x = 0;
+		return t;
+	};
 	_proto.meterGroup_i = function () {
 		var t = new eui.Group();
 		this.meterGroup = t;
@@ -2252,7 +2389,6 @@ var egret = window.egret;
 		var t = new eui.Image();
 		t.horizontalCenter = 0;
 		t.source = "clock_bg_png";
-		t.visible = false;
 		t.y = -2;
 		return t;
 	};
@@ -2323,10 +2459,10 @@ var egret = window.egret;
 		t.horizontalCenter = 0;
 		t.width = 204;
 		t.y = 175;
-		t.elementsContent = [this._Rect3_i(),this.rateMC2_i()];
+		t.elementsContent = [this._Rect1_i(),this.rateMC2_i()];
 		return t;
 	};
-	_proto._Rect3_i = function () {
+	_proto._Rect1_i = function () {
 		var t = new eui.Rect();
 		t.fillColor = 0x282828;
 		t.height = 12;
@@ -2403,6 +2539,59 @@ var egret = window.egret;
 		t.source = "red_jpg";
 		t.top = 0;
 		t.visible = false;
+		return t;
+	};
+	_proto.tipsGroup_i = function () {
+		var t = new eui.Group();
+		this.tipsGroup = t;
+		t.height = 220;
+		t.horizontalCenter = 0;
+		t.verticalCenter = 0;
+		t.width = 400;
+		t.elementsContent = [this._Image8_i(),this._Label2_i(),this._Label3_i()];
+		return t;
+	};
+	_proto._Image8_i = function () {
+		var t = new eui.Image();
+		t.bottom = 0;
+		t.left = 0;
+		t.right = 0;
+		t.scale9Grid = new egret.Rectangle(10,8,13,13);
+		t.source = "bg8_png";
+		t.top = 0;
+		return t;
+	};
+	_proto._Label2_i = function () {
+		var t = new eui.Label();
+		t.horizontalCenter = 0;
+		t.text = "《健康游戏忠告》";
+		t.y = 20;
+		return t;
+	};
+	_proto._Label3_i = function () {
+		var t = new eui.Label();
+		t.horizontalCenter = 0;
+		t.lineSpacing = 5;
+		t.size = 24;
+		t.text = "抵制不良游戏，拒绝盗版游戏。\n注意自我保护，谨防受骗上当。\n适度游戏益脑，沉迷游戏伤身。\n合理安排时间，享受健康生活。";
+		t.textAlign = "center";
+		t.y = 80;
+		return t;
+	};
+	_proto.jumpMC_i = function () {
+		var t = new JumpMC();
+		this.jumpMC = t;
+		t.bottom = 170;
+		t.skinName = "JumpMCSkin";
+		t.x = 50;
+		return t;
+	};
+	_proto.jumpMC2_i = function () {
+		var t = new JumpMC();
+		this.jumpMC2 = t;
+		t.bottom = 170;
+		t.right = 50;
+		t.skinName = "JumpMCSkin";
 		return t;
 	};
 	return GameUISkin;
@@ -2807,26 +2996,28 @@ var egret = window.egret;
 	_proto.backBtn_i = function () {
 		var t = new eui.Group();
 		this.backBtn = t;
+		t.bottom = 0;
+		t.height = 34;
 		t.horizontalCenter = 0;
-		t.y = 556;
+		t.width = 120;
 		t.elementsContent = [this._Label2_i(),this._Rect1_i()];
 		return t;
 	};
 	_proto._Label2_i = function () {
 		var t = new eui.Label();
+		t.horizontalCenter = 0;
 		t.size = 24;
 		t.text = "返回首页";
-		t.x = 0;
 		t.y = 0;
 		return t;
 	};
 	_proto._Rect1_i = function () {
 		var t = new eui.Rect();
+		t.bottom = 0;
 		t.fillColor = 0xffffff;
 		t.height = 2;
 		t.left = 0;
 		t.right = 0;
-		t.y = 30;
 		return t;
 	};
 	return ResultUISkin;
@@ -3052,4 +3243,73 @@ var egret = window.egret;
 		return t;
 	};
 	return SkinUISkin;
+})(eui.Skin);generateEUI.paths['resource/game_skin/TryCarUISkin.exml'] = window.TryCarUISkin = (function (_super) {
+	__extends(TryCarUISkin, _super);
+	function TryCarUISkin() {
+		_super.call(this);
+		this.skinParts = ["closeBtn","item","btn"];
+		
+		this.height = 600;
+		this.width = 480;
+		this.elementsContent = [this._Image1_i(),this.closeBtn_i(),this._Label1_i(),this.item_i(),this.btn_i()];
+	}
+	var _proto = TryCarUISkin.prototype;
+
+	_proto._Image1_i = function () {
+		var t = new eui.Image();
+		t.bottom = 0;
+		t.left = 0;
+		t.right = 0;
+		t.scale9Grid = new egret.Rectangle(81,149,230,153);
+		t.source = "window_bg_png";
+		t.top = 0;
+		return t;
+	};
+	_proto.closeBtn_i = function () {
+		var t = new eui.Group();
+		this.closeBtn = t;
+		t.height = 100;
+		t.right = 0;
+		t.width = 100;
+		t.y = 0;
+		t.elementsContent = [this._Image2_i()];
+		return t;
+	};
+	_proto._Image2_i = function () {
+		var t = new eui.Image();
+		t.horizontalCenter = 0;
+		t.source = "close_btn_png";
+		t.verticalCenter = 0;
+		return t;
+	};
+	_proto._Label1_i = function () {
+		var t = new eui.Label();
+		t.bold = true;
+		t.horizontalCenter = 0.5;
+		t.text = "新车试用";
+		t.y = 35;
+		return t;
+	};
+	_proto.item_i = function () {
+		var t = new SkinItem();
+		this.item = t;
+		t.horizontalCenter = 0;
+		t.scaleX = 1.2;
+		t.scaleY = 1.2;
+		t.skinName = "SkinItemSkin";
+		t.y = 130;
+		return t;
+	};
+	_proto.btn_i = function () {
+		var t = new eui.Button();
+		this.btn = t;
+		t.bottom = 50;
+		t.height = 70;
+		t.horizontalCenter = 0;
+		t.label = "马上试用";
+		t.skinName = "Btn4Skin";
+		t.width = 160;
+		return t;
+	};
+	return TryCarUISkin;
 })(eui.Skin);

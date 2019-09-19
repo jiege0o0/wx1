@@ -8,10 +8,12 @@
 		"newFeature": true
 	},
 	"compileType": "game",
-	"libVersion": "game",
+	"libVersion": "2.7.0",
 	"appid": "wxd5d9d807682d46bb",
 	"projectname": "wx1",
 	"cloudfunctionRoot": "cloud-functions/",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,

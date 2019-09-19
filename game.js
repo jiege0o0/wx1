@@ -16,13 +16,15 @@ if(window.RES && RES.processor) {
     require('./library/sound.js');
     require('./library/binary.js');
 }
+require('./utils/wlad_sdk_game.min.js');
+require('./utils/ald-game.js')
+// var fundebug = require("./library/fundebug.0.4.0.min.js");
+// fundebug.init({
+//   apikey: "9a69bba39a41796ebba788ca6bde75254548c7d076a470c01b735d2d7b9037ac",
+//   setSystemInfo: true,
+//   monitorHttpData:true
+// })	
 
-var fundebug = require("./library/fundebug.0.4.0.min.js");
-fundebug.init({
-  apikey: "9a69bba39a41796ebba788ca6bde75254548c7d076a470c01b735d2d7b9037ac",
-  setSystemInfo: true,
-  monitorHttpData:true
-})	
 
 
 
@@ -34,6 +36,16 @@ wx.cloud.init({
   // env: 'hange0o0-1-797611'
   
 });
+
+// wx.cloud.getTempFileURL({
+  // fileList: ['cloud://hange0o0-1-797611.6861-hange0o0-1-797611/aa.txt'],
+  // success: res => {
+    // console.log(res.fileList[0].tempFileURL)
+  // },
+  // fail: err => {
+    // console.log(err)
+  // }
+// })
 
 
 // var a;
@@ -87,4 +99,12 @@ egret.runEgret({
 });
 console.log('_2')
 
+// var url = "https://6861-hange0o0-1-797611-1258242303.tcb.qcloud.la/aa.txt"
+// var loader = new egret.URLLoader();
+// loader.dataFormat = egret.URLLoaderDataFormat.TEXT;
+// loader.once(egret.Event.COMPLETE, () => {
+//   var sound = loader.data;  
+//   console.log(sound)
+// },this);
+// loader.load(new egret.URLRequest(url));
 // require("egret.min.js")
